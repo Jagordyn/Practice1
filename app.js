@@ -14,9 +14,12 @@ app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/index.html`);
 })
 
-app.post('/', (req, res) => {
-    // res.write(`<h1>${req.body.firstName}</h1>`)
+const post = app.post('/', (req, res) => {
     res.sendFile(`${__dirname}/return.html`)
+    return {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    }
 })
 
 app.get('/return', (req, res) => {
@@ -27,3 +30,10 @@ app.post('/return', (req, res) => {
     res.redirect(`/`);
 })
 
+app.post('/refresh', (req, res) => {
+    res.redirect(`/return`);
+})
+
+app.post('/myInfo', (req, res) => {
+    res.send(`<h1>Your first name is ${post.firstName} and your last name is ${post.lastName}</h1>`)
+})

@@ -35,5 +35,5 @@ app.post('/refresh', (req, res) => {
 })
 
 app.post('/myInfo', (req, res) => {
-    res.send(`<h1>Your first name is ${post.firstName} and your last name is ${post.lastName}</h1>`)
+    res.send(`<h1>Unable to display info, Sorry...</h1>`)
 })
